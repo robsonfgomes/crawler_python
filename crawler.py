@@ -1,14 +1,18 @@
-import requests as r
+import requests
 import BeautifulSoup
-import os, csv
+import os, csv, time
 
-r = r.get('http://ego.globo.com/famosos/tudo-sobre/abigail-breslin.html')
-soup = BeautifulSoup.BeautifulSoup(r.content)
 
-for a in soup.findAll('li', attrs={'class': 'aniversario'}):
-    print(a.text)
-
+array = []
+r = []
 with  open("dados/links.csv") as links:
     reader = csv.reader(links)
     for row in reader:
-        print(row[0])
+        array.append(str(row[0]))
+
+for item in array:
+    r = requests.get(item)    
+    soup = BeautifulSoup.BeautifulSoup(r.content)
+    for a in soup.findAll('li', attrs={'class': 'aniversario'}):
+        print(a.text)    
+        
