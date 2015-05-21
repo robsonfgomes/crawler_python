@@ -1,0 +1,5 @@
+A ordem de disposição das informações do arquivo de dados estão dispostas como informado abaixo.
+Quando não havendo a informação é preenchido com o valor 'NULL'
+
+Ex1: nome, nome completo,  url, link_foto, signo, dataNascimento, cônjuge, biografia
+Ex2: nome, nome completo,  url, link_foto, signo, dataNascimento, 'NULL', biografia
