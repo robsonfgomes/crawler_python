@@ -31,18 +31,18 @@ for item in array:
     for nomeCompleto in soup.findAll('p', attrs={'class': 'nome-completo'}):
         nc = nomeCompleto.text
     if(nc):
-        linha = linha + ',' + nomeCompleto.text + ',' + item
+        linha = linha + '|' + nomeCompleto.text + '|' + item
     else:
-        linha = linha + ',' + 'NULL' + ',' + item        
+        linha = linha + '|' + 'NULL' + '|' + item        
         
     #filtrando o link da foto
     ft = None    
     for urlFoto in soup.findAll('img', attrs={'class': 'img-perfil'}):
         ft = urlFoto.get('src')
     if(ft):
-        linha = linha + ',' + urlFoto.get('src')
+        linha = linha + '|' + urlFoto.get('src')
     else:
-        linha = linha + ',' + 'NULL'
+        linha = linha + '|' + 'NULL'
         
     #filtrando os signos
     sf = None    
@@ -50,36 +50,36 @@ for item in array:
         for s in soup.findAll('a', attrs={'href': 'http://horoscopo.ego.globo.com/signos/'+signo}):
             sf = s.text
     if(sf):
-        linha = linha + ',' + s.text
+        linha = linha + '|' + s.text
     else:
-        linha = linha + ',' + 'NULL'
+        linha = linha + '|' + 'NULL'
 
     #filtrando a data de nascimento
     df = None    
     for dataNas in soup.findAll('li', attrs={'class': 'aniversario'}):
         df = dataNas.text
     if(df):
-        linha = linha + ',' + dataNas.text  
+        linha = linha + '|' + dataNas.text  
     else:
-        linha = linha + ',' + 'NULL'
+        linha = linha + '|' + 'NULL'
 
     #filtrando o relacionamento
     relacionamento = None    
     for status in soup.findAll('meta', attrs={'itemprop': 'spouse'}):
         relacionamento = status.get('content')
     if(relacionamento):
-        linha = linha + ',' + relacionamento
+        linha = linha + '|' + relacionamento
     else:
-        linha = linha + ',' + 'NULL'
+        linha = linha + '|' + 'NULL'
 
     #filtrando a biografia
     bio = None    
     for biografia in soup.findAll('p', attrs={'class': 'biografia'}):
         bio = biografia.text
     if(bio):
-        linha = linha + ',' + bio
+        linha = linha + '|' + bio
     else:
-        linha = linha + ',' + 'NULL'
+        linha = linha + '|' + 'NULL'
 
         
     arquivo.write(linha.encode('utf-8'))
