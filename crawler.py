@@ -56,10 +56,10 @@ for item in array:
 
     #filtrando a data de nascimento
     df = None    
-    for dataNas in soup.findAll('li', attrs={'class': 'aniversario'}):
-        df = dataNas.text
+    for dataNas in soup.findAll('time', attrs={'itemprop': 'birthDate'}):
+        df = dataNas.get('datetime')
     if(df):
-        linha = linha + '|' + dataNas.text  
+        linha = linha + '|' + df
     else:
         linha = linha + '|' + 'NULL'
 
