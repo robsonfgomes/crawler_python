@@ -1,0 +1,1 @@
+Para executar a interface gráfica basta realizar o downdload da IDE PyQt4, pode ser cessado através da url: http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.3/PyQt4-4.11.3-gpl-Py2.7-Qt4.8.6-x32.exe/download
